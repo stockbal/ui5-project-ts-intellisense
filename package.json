@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "@cap-js-community/odata-v2-adapter": "^1.14.1",
+    "@cap-js-community/odata-v2-adapter": "^1.14.2",
     "@sap/cds": "^8",
     "express": "^4"
   },

@@ -1,5 +1,5 @@
 {
-  "_version": "1.65.0",
+  "_version": "1.17.0",
   "sap.app": {
     "id": "shop.bookshop",
     "type": "application",
@@ -46,7 +46,7 @@
   "sap.ui5": {
     "flexEnabled": true,
     "dependencies": {
-      "minUI5Version": "1.133.0",
+      "minUI5Version": "1.71.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {}
