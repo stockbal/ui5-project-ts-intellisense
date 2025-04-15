@@ -1,5 +1,4 @@
 /**
- * @typedef {import('sap/ui/core/mvc/Controller').default} Controller
  * @typedef {import('sap/m/MultiInput').default} MultiInput
  * @typedef {import('sap/ui/model/odata/v2/ODataListBinding').default} ODataListBinding
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
@@ -22,14 +21,11 @@ sap.ui.define(
    * @param {typeof import('sap/ui/core/mvc/Controller').default} Controller
    * @param {typeof import('sap/ui/core/Fragment').default} Fragment
    * @param {typeof import('sap/m/ColumnListItem').default} ColumnListItem
-   * @returns
    */
   (Controller, Fragment, ColumnListItem, tokenHandlers, crudHandlers, transactionHandlers, changeHandlers) => {
     "use strict";
 
     return Controller.extend("shop.bookshop.controller.MainView", {
-      /** @type {ColumnListItem} */
-      template: undefined,
       /**
        * @this MainController
        */

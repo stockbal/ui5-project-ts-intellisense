@@ -1,6 +1,8 @@
 declare module "shop/bookshop/controller/MainView.controller" {
   import Table from "sap/m/Table";
   import Controller from "sap/ui/core/mvc/Controller";
+  import ColumnListItem from "sap/m/ColumnListItem";
+
   /**
    * Main Controller of the application
    * Note: Every method that needs to be accessed in any of the submodules of the class
@@ -12,6 +14,7 @@ declare module "shop/bookshop/controller/MainView.controller" {
   export default class MainController extends Controller {
     deletedTokenPaths: string[];
     salesTable: Table;
+    template: ColumnListItem | undefined;
     rebindTable(): Promise<void>;
     onRefresh(): void;
     onSave(): void;
