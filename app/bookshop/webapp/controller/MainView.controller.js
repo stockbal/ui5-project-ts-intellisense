@@ -5,20 +5,31 @@
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
  * @typedef {import('sap/m/Table').default} Table
  * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainController
+ * @typedef {import('sap/m/ColumnListItem').default} ColumnListItem
  */
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/Fragment",
+    "sap/m/ColumnListItem",
     "./main/tokenHandlers",
     "./main/crudHandlers",
     "./main/transactionHandlers",
     "./main/changeHandlers",
   ],
-  (Controller, Fragment, tokenHandlers, crudHandlers, transactionHandlers, changeHandlers) => {
+  /**
+   *
+   * @param {typeof import('sap/ui/core/mvc/Controller').default} Controller
+   * @param {typeof import('sap/ui/core/Fragment').default} Fragment
+   * @param {typeof import('sap/m/ColumnListItem').default} ColumnListItem
+   * @returns
+   */
+  (Controller, Fragment, ColumnListItem, tokenHandlers, crudHandlers, transactionHandlers, changeHandlers) => {
     "use strict";
 
     return Controller.extend("shop.bookshop.controller.MainView", {
+      /** @type {ColumnListItem} */
+      template: undefined,
       /**
        * @this MainController
        */
