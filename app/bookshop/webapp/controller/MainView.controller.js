@@ -29,9 +29,7 @@ class MainViewController extends Controller {
   }
   async rebindTable() {
     if (!this.template) {
-      this.template = /** @type {ColumnListItem}*/ (
-        await Fragment.load({ name: "shop.bookshop.fragment.SalesItem", controller: this })
-      );
+      this.template = await Fragment.load({ name: "shop.bookshop.fragment.SalesItem", controller: this });
     }
     this.salesTable?.bindItems({ path: "sales", template: this.template, templateShareable: true });
   }
