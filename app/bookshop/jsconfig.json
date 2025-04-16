@@ -14,5 +14,5 @@
     },
     "types": ["@sapui5/types"]
   },
-  "include": ["./webapp/**/*", "types"]
+  "include": ["./webapp/**/*"]
 }

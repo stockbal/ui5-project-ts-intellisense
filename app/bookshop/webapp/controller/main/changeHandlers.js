@@ -1,18 +1,18 @@
 /**
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  */
 
 sap.ui.define([], () => {
   return {
     /**
-     * @this MainController
+     * @this MainViewController
      */
     onChanged(event) {
       console.log(event);
     },
     /**
-     * @this MainController
+     * @this MainViewController
      * @param {import('sap/m/MultiInput').MultiInput$TokenUpdateEvent} event
      */
     onTokenChange(event) {

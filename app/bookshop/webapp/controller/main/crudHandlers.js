@@ -1,11 +1,11 @@
 /**
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  * @typedef {import('sap/m/MessageBox').default} MessageBox
  */
 sap.ui.define(["sap/m/MessageBox"], (MessageBox) => {
   return {
     /**
-     * @this MainController
+     * @this MainViewController
      */
     onAdd() {
       this.getView()
@@ -22,7 +22,7 @@ sap.ui.define(["sap/m/MessageBox"], (MessageBox) => {
         );
     },
     /**
-     * @this MainController
+     * @this MainViewController
      */
     onDelete() {
       const selectedContexts = this.salesTable.getSelectedContexts();

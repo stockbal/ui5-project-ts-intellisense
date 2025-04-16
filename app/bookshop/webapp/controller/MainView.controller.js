@@ -1,10 +1,7 @@
 /**
- * @typedef {import('sap/m/MultiInput').default} MultiInput
- * @typedef {import('sap/ui/model/odata/v2/ODataListBinding').default} ODataListBinding
- * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('sap/m/Table').default} Table
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  */
+
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
@@ -17,7 +14,7 @@ sap.ui.define(
   ],
   /**
    *
-   * @param {typeof import('sap/ui/core/mvc/Controller').default} Controller
+   * @param {typeof import('shop/bookshop/controller/BaseController').default} Controller
    * @param {typeof import('sap/ui/core/Fragment').default} Fragment
    */
   (Controller, Fragment, tokenHandlers, crudHandlers, transactionHandlers, changeHandlers) => {
@@ -25,7 +22,7 @@ sap.ui.define(
 
     return Controller.extend("shop.bookshop.controller.MainView", {
       /**
-       * @this MainController
+       * @this MainViewController
        */
       onInit() {
         this.deletedTokenPaths = [];
@@ -37,7 +34,7 @@ sap.ui.define(
         this.rebindTable().then(() => {});
       },
       /**
-       * @this MainController
+       * @this MainViewController
        */
       async rebindTable() {
         if (!this.template) {

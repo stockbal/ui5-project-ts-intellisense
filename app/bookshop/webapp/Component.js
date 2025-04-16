@@ -1,9 +1,9 @@
 sap.ui.define(
-  ["sap/ui/core/UIComponent", "shop/bookshop/model/models"],
+  ["sap/ui/core/UIComponent", "shop/bookshop/model/models", "shop/bookshop/controls/CustomInput"],
   /**
    *
    * @param {typeof import('sap/ui/core/UIComponent').default} UIComponent
-   * @param {import('./model/models')} models
+   * @param {import('shop/bookshop/model/models').default} models
    */
   (UIComponent, models) => {
     "use strict";

@@ -1,6 +1,6 @@
 declare module "shop/bookshop/controller/MainView.controller" {
   import Table from "sap/m/Table";
-  import Controller from "sap/ui/core/mvc/Controller";
+  import Controller from "shop/bookshop/controller/BaseController";
   import ColumnListItem from "sap/m/ColumnListItem";
 
   /**
@@ -11,7 +11,7 @@ declare module "shop/bookshop/controller/MainView.controller" {
    * WARNING: there is no sanity check agains the actual existing parameters, so they need to be kept
    *          in sync with webapp/controller/MainView.controller.js and its sub modules in main/
    */
-  export default class MainController extends Controller {
+  export default class MainViewController extends Controller {
     deletedTokenPaths: string[];
     salesTable: Table;
     template: ColumnListItem | undefined;

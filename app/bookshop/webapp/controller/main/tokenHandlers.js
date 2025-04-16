@@ -1,12 +1,12 @@
 /**
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  * @typedef {import('sap/m/MultiInput').default} MultiInput
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
  */
 sap.ui.define(["sap/m/Token"], (Token) => {
   return {
     /**
-     * @this MainController
+     * @this MainViewController
      */
     onNewToken(event) {
       /** @type {ODataModel} */
