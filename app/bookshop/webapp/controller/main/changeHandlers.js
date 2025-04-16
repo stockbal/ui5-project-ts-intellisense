@@ -1,10 +1,10 @@
 /**
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('../MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  */
 export default {
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onChanged(event) {
     console.log(event);
@@ -12,7 +12,7 @@ export default {
   /**
    *
    * @param {import('sap/m/MultiInput').MultiInput$TokenUpdateEvent} event
-   * @this MainController
+   * @this MainViewController
    */
   onTokenChange(event) {
     const removedTokens = event.getParameter("removedTokens");

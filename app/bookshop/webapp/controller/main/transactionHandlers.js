@@ -1,11 +1,11 @@
 /**
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('../MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  */
 
 export default {
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onRefresh() {
     this.getView()?.getModel()?.resetChanges();
@@ -13,7 +13,7 @@ export default {
     this.deletedTokenPaths.splice(0, this.deletedTokenPaths.length);
   },
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onSave() {
     // delete all stored token paths
@@ -22,14 +22,14 @@ export default {
     this.getView().getModel().submitChanges();
   },
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onCancel() {
     this.getView().getModel().resetChanges();
     this.deletedTokenPaths.splice(0, this.deletedTokenPaths.length);
   },
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onCustomSave() {
     /** @type {ODataModel} */

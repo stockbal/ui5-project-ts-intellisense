@@ -1,13 +1,13 @@
 /**
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('../MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  */
 
 import MessageBox from "sap/m/MessageBox";
 
 export default {
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onAdd() {
     this.getView()
@@ -24,7 +24,7 @@ export default {
       );
   },
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onDelete() {
     const selectedContexts = this.salesTable.getSelectedContexts();

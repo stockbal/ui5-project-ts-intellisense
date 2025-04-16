@@ -1,14 +1,14 @@
 /**
  * @typedef {import('sap/m/MultiInput').default} MultiInput
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('../MainView.controller').default} MainController
+ * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  */
 
 import Token from "sap/m/Token";
 
 export default {
   /**
-   * @this MainController
+   * @this MainViewController
    */
   onNewToken(event) {
     /** @type {ODataModel} */
@@ -16,7 +16,6 @@ export default {
     const row = event.getSource().getParent();
     /** @type {MultiInput} */
     const multiInput = row.getCells()[1];
-
     const newContext = model.createEntry(
       `${this.getView().getBindingContext().getPath()}/sales(guid'${row
         .getBindingContext()
