@@ -1,12 +1,25 @@
+import ColumnListItem from "sap/m/ColumnListItem";
+import Table from "sap/m/Table";
 import Fragment from "sap/ui/core/Fragment";
 import Controller from "sap/ui/core/mvc/Controller";
-import changeHandlers from "./main/changeHandlers";
-import crudHandlers from "./main/crudHandlers";
-import tokenHandlers from "./main/tokenHandlers";
-import transactionHandlers from "./main/transactionHandlers";
-import Table from "sap/m/Table";
-import ColumnListItem from "sap/m/ColumnListItem";
+import changeHandlers, { IChangeHandlers } from "./main/changeHandlers";
+import tokenHandlers, { ITokenHandlers } from "./main/tokenHandlers";
+import transactionHandlers, { ITransactionHandlers } from "./main/transactionHandlers";
+import crudHandlers, { ICrudHandlers } from "./main/crudHandlers";
 
+/**
+ * Combined type so sub modules have access to the full interface of the
+ * main controller
+ */
+export type IMainViewController = MainViewController &
+  ICrudHandlers &
+  IChangeHandlers &
+  ITokenHandlers &
+  ITransactionHandlers;
+
+/**
+ * @alias shop.bookshop.controller.MainView
+ */
 class MainViewController extends Controller {
   deletedTokenPaths: string[] = [];
   other = {};
@@ -31,38 +44,13 @@ class MainViewController extends Controller {
     }
     this.salesTable?.bindItems({ path: "sales", template: this.template, templateShareable: true });
   }
-
-  // Option 1) Add methods directly in the class (supports autocompletion and navigation)
-  onAdd = crudHandlers.onAdd;
-  onDelete = crudHandlers.onDelete;
-  onNewToken = tokenHandlers.onNewToken;
-  onCancel = transactionHandlers.onCancel;
-  onCustomSave = transactionHandlers.onCustomSave;
-  onRefresh = transactionHandlers.onRefresh;
-  onSave = transactionHandlers.onSave;
-  onChanged = changeHandlers.onChanged;
-  onTokenChange = changeHandlers.onTokenChange;
 }
 
-// Option 2) Extend controller with "foreign" methods after the actual class definition (supports autocompletion and navigation)
-// --------------------------------------------------------------------------
-// MainViewController.prototype.onAdd = crudHandlers.onAdd;
-// MainViewController.prototype.onDelete = crudHandlers.onDelete;
-// MainViewController.prototype.onNewToken = tokenHandlers.onNewToken;
-// MainViewController.prototype.onCancel = transactionHandlers.onCancel;
-// MainViewController.prototype.onCustomSave = transactionHandlers.onCustomSave;
-// MainViewController.prototype.onRefresh = transactionHandlers.onRefresh;
-// MainViewController.prototype.onSave = transactionHandlers.onSave;
-// MainViewController.prototype.onChanged = changeHandlers.onChanged;
-// MainViewController.prototype.onTokenChange = changeHandlers.onTokenChange;
-
-// Option 3) Shortest merge of additional methods into the controller definition (does not support autocompletion right away)
-// --------------------------------------------------------------------------
-// Object.assign(MainViewController.prototype, {
-//   ...crudHandlers,
-//   ...tokenHandlers,
-//   ...transactionHandlers,
-//   ...changeHandlers,
-// });
+Object.assign(MainViewController.prototype, {
+  ...crudHandlers,
+  ...tokenHandlers,
+  ...transactionHandlers,
+  ...changeHandlers,
+});
 
 export default MainViewController;

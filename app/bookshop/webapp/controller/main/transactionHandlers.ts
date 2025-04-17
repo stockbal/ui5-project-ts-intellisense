@@ -3,7 +3,14 @@ import MainViewController from "../MainView.controller";
 import ODataModel from "sap/ui/model/odata/v2/ODataModel";
 import Context from "sap/ui/model/odata/v2/Context";
 
-export default {
+export interface ITransactionHandlers {
+  onRefresh(event: Event): void;
+  onSave(): void;
+  onCancel(): void;
+  onCustomSave(): void;
+}
+
+const transactionHandlers: ITransactionHandlers = {
   onRefresh(this: MainViewController, event: Event) {
     const model = this.getView()?.getModel() as ODataModel;
     model.resetChanges();
@@ -31,3 +38,5 @@ export default {
     model.submitChanges({ groupId: "other" });
   },
 };
+
+export default transactionHandlers;

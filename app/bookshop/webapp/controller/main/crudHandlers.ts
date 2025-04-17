@@ -1,10 +1,16 @@
 import MessageBox from "sap/m/MessageBox";
-import ODataModel from "sap/ui/model/odata/v2/ODataModel";
-import MainViewController from "../MainView.controller";
 import Context from "sap/ui/model/odata/v2/Context";
+import ODataModel from "sap/ui/model/odata/v2/ODataModel";
+import { IMainViewController } from "../MainView.controller";
 
-export default {
-  onAdd(this: MainViewController) {
+export interface ICrudHandlers {
+  onAdd(): void;
+  onDelete(): void;
+}
+
+const crudHandlers: ICrudHandlers = {
+  onAdd(this: IMainViewController) {
+    this.onAdd();
     (this.getView()?.getModel() as ODataModel).create(
       "sales",
       {},
@@ -16,7 +22,7 @@ export default {
       },
     );
   },
-  onDelete(this: MainViewController) {
+  onDelete(this: IMainViewController) {
     const selectedContexts = this.salesTable.getSelectedContexts();
     if (!selectedContexts?.length) {
       MessageBox.error("No rows selected");
@@ -28,3 +34,5 @@ export default {
     });
   },
 };
+
+export default crudHandlers;
