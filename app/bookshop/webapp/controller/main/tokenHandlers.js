@@ -1,14 +1,17 @@
 /**
  * @typedef {import('sap/m/MultiInput').default} MultiInput
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
+ * @typedef {import('../MainView.controller').IMainViewController} IMainViewController
  */
 
 import Token from "sap/m/Token";
 
+/**
+ * @typedef {{onNewToken(event: any): void}} ITokenHandlers
+ */
 export default {
   /**
-   * @this MainViewController
+   * @this IMainViewController
    */
   onNewToken(event) {
     /** @type {ODataModel} */

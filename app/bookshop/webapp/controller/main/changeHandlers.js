@@ -1,10 +1,14 @@
 /**
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
+ * @typedef {import('../MainView.controller').default} IMainViewController
+ */
+
+/**
+ * @typedef {{onChanged(event: any): void; onTokenChange(event: any): void}} IChangeHandlers
  */
 export default {
   /**
-   * @this MainViewController
+   * @this IMainViewController
    */
   onChanged(event) {
     console.log(event);
@@ -12,7 +16,7 @@ export default {
   /**
    *
    * @param {import('sap/m/MultiInput').MultiInput$TokenUpdateEvent} event
-   * @this MainViewController
+   * @this IMainViewController
    */
   onTokenChange(event) {
     const removedTokens = event.getParameter("removedTokens");

@@ -1,13 +1,16 @@
 /**
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
- * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
+ * @typedef {import('../MainView.controller').IMainViewController} IMainViewController
  */
 
 import MessageBox from "sap/m/MessageBox";
 
+/**
+ * @typedef {{onAdd(): void; onDelete(): void;}} ICrudHandlers
+ */
 export default {
   /**
-   * @this MainViewController
+   * @this IMainViewController
    */
   onAdd() {
     this.getView()
@@ -24,7 +27,7 @@ export default {
       );
   },
   /**
-   * @this MainViewController
+   * @this IMainViewController
    */
   onDelete() {
     const selectedContexts = this.salesTable.getSelectedContexts();

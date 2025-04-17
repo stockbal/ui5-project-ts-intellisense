@@ -8,6 +8,13 @@ import BaseController from "./BaseController";
 /**
  * @typedef {import('sap/m/ColumnListItem').default} ColumnListItem
  * @typedef {import('sap/m/Table').default} Table
+ *
+ * Definition of compound type for full MainView.controller
+ * @typedef {MainViewController & import('./main/crudHandlers').ICrudHandlers
+ *                              & import('./main/tokenHandlers').ITokenHandlers
+ *                              & import('./main/transactionHandlers').ITransactionHandlers
+ *                              & import('./main/changeHandlers').IChangeHandlers
+ *          } IMainViewController
  */
 
 /**
@@ -21,6 +28,10 @@ class MainViewController extends BaseController {
   salesTable = undefined;
   /** @type {ColumnListItem} */
   template = undefined;
+
+  /**
+   * @this IMainViewController
+   */
   onInit() {
     this.deletedTokenPaths = [];
     this.salesTable = /** @type {Table} */ (this.byId("idSalesTable"));
@@ -30,11 +41,16 @@ class MainViewController extends BaseController {
     });
     this.rebindTable().then(() => {});
   }
+
+  /**
+   * @this IMainViewController
+   */
   async rebindTable() {
     if (!this.template) {
       this.template = await Fragment.load({ name: "shop.bookshop.fragment.SalesItem", controller: this });
     }
     this.salesTable?.bindItems({ path: "sales", template: this.template, templateShareable: true });
+    this.onNewToken();
   }
 }
 
