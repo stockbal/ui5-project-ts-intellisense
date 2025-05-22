@@ -22,7 +22,7 @@ sap.ui.define(
     };
 
     CustomInput.prototype.onAfterRendering = function () {
-      InputBase.prototype.onAfterRendering.call(this);
+      InputBase.prototype.onAfterRendering.apply(this, arguments);
 
       console.log("Value", this.getValue());
     };

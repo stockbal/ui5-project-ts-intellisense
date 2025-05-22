@@ -1,7 +1,9 @@
+
 declare module "shop/bookshop/controller/MainView.controller" {
   import Table from "sap/m/Table";
   import Controller from "shop/bookshop/controller/BaseController";
   import ColumnListItem from "sap/m/ColumnListItem";
+  import Token from "sap/m/Token";
 
   /**
    * Main Controller of the application
@@ -22,6 +24,7 @@ declare module "shop/bookshop/controller/MainView.controller" {
     onCustomSave(): void;
     onChanged(): void;
     onTokenChange(): void;
+    onDeleteToken(token: Token): void;
     onAdd(): void;
     onDelete(): void;
   }

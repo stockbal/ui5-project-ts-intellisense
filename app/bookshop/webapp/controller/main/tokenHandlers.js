@@ -2,8 +2,14 @@
  * @typedef {import('shop/bookshop/controller/MainView.controller').default} MainViewController
  * @typedef {import('sap/m/MultiInput').default} MultiInput
  * @typedef {import('sap/ui/model/odata/v2/ODataModel').default} ODataModel
+ * @typedef {typeof import('sap/m/Token').default} TokenType
+ * @typedef {import('sap/m/Token').default} TokenInstance
  */
-sap.ui.define(["sap/m/Token"], (Token) => {
+sap.ui.define(["sap/m/Token"], 
+  /**
+   * @param {TokenType} Token 
+   */
+  (Token) => {
   return {
     /**
      * @this MainViewController
@@ -26,5 +32,12 @@ sap.ui.define(["sap/m/Token"], (Token) => {
       newToken.setBindingContext(newContext);
       multiInput.addToken(newToken);
     },
+
+    /**
+     * @param {TokenInstance} token
+     */
+    onDeleteToken(token) {
+      // do something
+    }
   };
 });
