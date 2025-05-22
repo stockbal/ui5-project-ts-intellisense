@@ -100,9 +100,65 @@ The methods of the UI5 SDK often return only a base type from some method calls 
   model = this.getView().getModel();
   ```
 
+### Overwriting the `this` context
+
+Sometimes it may be required to manually set `this` to another type as the one determined by the TypeScript compiler.
+To do this you can use the `@this` tag.
+
+```js
+/**
+ * @this MyCustomType
+ */
+ myMethod() {
+    // this is now of type `MyCustomType`
+ }
+```
+
+In the app of this repository it was used to merge methods/properties of different files into one combined definition of a controller (see [MainView.controller](./app/bookshop/webapp/controller/MainView.controller.js)).
+
+### Providing type declaration (`.d.ts`) files
+
+Even though we can import the modules of our application in `sap.ui.define`, the TypeScript compiler will still not know how to handle this, as there is no apparent type export in these UI5 modules.
+To enable the same type support for our own modules as SAP provides via their type npm package, you use so called type declaration files. These files are written in TypeScript syntax and represent the interface of a given `sap.ui.define` module.
+
+The files consist of `declare module` statement which will use the fully qualified path of the module `<app-id-as-path>/<file-path-without-file-ending>`
+
+e.g. `.d.ts` file for the `models.js` module
+
+```ts
+// /app/bookshop/webapp/model/models.d.ts
+declare module "shop/bookshop/model/models" {
+  import JSONModel from "sap/ui/model/json/JSONModel";
+
+  interface Models {
+    createDeviceModel(): JSONModel;
+  }
+
+  const models: Models;
+  export default models;
+}
+```
+
+Once the `.d.ts` file exists it can be used in other modules
+
+```js
+sap.ui.define(["shop/bookshop/model/models"],
+  /**
+   * @param {import('shop/bookshop/model/models').default} models
+   */
+  (models) => {
+    models.createDeviceModel();
+    //           |
+    //         available via auto completion
+  };
+);
+```
+
+> **Note**: You have to keep the `.d.ts` file content always in sync with the `.js` file it belongs to
+
 ### Reusing type imports
 
-If you use a given type a lot in a file, you also have the option to declare the import as a Type Alias. This is best done at the beginning of a file.
+If you use a given type a lot in a file, you also have the option to declare the type import as a type alias. This is best done at the beginning of a file.
 
 e.g.
 
