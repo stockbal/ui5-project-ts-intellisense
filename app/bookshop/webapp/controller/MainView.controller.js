@@ -34,7 +34,7 @@ class MainViewController extends BaseController {
    */
   onInit() {
     this.deletedTokenPaths = [];
-    this.salesTable = /** @type {Table} */ (this.byId("idSalesTable"));
+    this.salesTable = this.byId("idSalesTable");
     this.getView()?.bindObject({
       path: "/Books(guid'64959d98-af41-4bc8-853a-9a13636c598e')",
       parameters: { $expand: "sales", $select: "title,sales" },
