@@ -92,7 +92,9 @@ Object.assign(MainViewController.prototype, {
 export default MainViewController;
 ```
 
-Instead of using `.d.ts` files to provide a full interface for the controller, we are using the `@typedef` JSDoc tag to define the definitions of the sub modules and an intersection type to combine all sub modules together into one type for the controller
+Instead of using `.d.ts` files to provide a full interface for the controller, we are using the `@typedef` JSDoc tag to define the definitions of the sub modules and an intersection type to combine all sub modules together into one type for the controller.
+
+> **Note**: The `.d.ts` file approach is also possible here. It is just a matter of taste at the end.
 
 ```js
 // /app/bookshop/webapp/controller/main/crudHandlers.js
