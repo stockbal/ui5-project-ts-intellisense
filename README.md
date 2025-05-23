@@ -2,7 +2,7 @@
 
 > **Note**: Follow this [link](https://github.com/stockbal/ui5-project-ts-intellisense/tree/main) to show all available scenarios
 
-This sample SAPUI5 projects demonstrates how to get intellisense with TypeScript supported by the UI5 task/middleware `ui5-tooling-transpile`.
+This sample SAPUI5 project demonstrates how to get intellisense with TypeScript, supported by the UI5 task/middleware `ui5-tooling-transpile`.
 
 ## Setting up the project to support autocompletion for SAPUI5 types
 
@@ -98,6 +98,7 @@ class MainViewController extends Controller {
 export default MainViewController;
 ```
 
-### Use advantages of TypeScript
+## Additional Resources
 
-Aside from that you can use the full advantages that [TypeScript](https://www.typescriptlang.org/docs/handbook/intro.html) brings with it.
+- [UI5 & TypeScript](https://sap.github.io/ui5-typescript/)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
