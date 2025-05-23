@@ -190,3 +190,7 @@ sap.ui.define(["sap/m/Token"],
   }
 );
 ```
+
+## Additional resources
+
+- [Guide on how to add TypeScript-based benefits to an existing JavaScript app](https://github.com/SAP-samples/ui5-cap-event-app/blob/js-with-typescript-support/README.md)
